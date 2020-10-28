@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { taskService } from "./task.service";
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angularApp';
+  title = 'angular ';
+  constructor(private item: taskService){
+    this.item.getList().subscribe(data=>{
+      console.log(data)
+    })
+
+    console.log(item);
+  }
+
+
+
+
+
 }

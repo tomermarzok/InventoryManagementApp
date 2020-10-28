@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<p>update item by id</p>
+<form [formGroup]="idSub" (ngSubmit)="subId()" ngNativeValidate>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button  type="submit" id="submit">Submit</button>
+            <input type="number"  min="0" id="inputId" value="submit" formControlName="getId" required>
+        </div>
+    </div>
+</form>
+<table class="table" id="table" [hidden]="visableTable ==false">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">description</th>
+            <th scope="col">count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <th scope="row">*</th>
+        <td>{{this.id}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.count}}</td>
+    </tbody>
+    </table>
+    <form ngNativeValidate [hidden]="visableTable ==false" [formGroup]="updateItemData" (ngSubmit)="updateItem(this.id)">
+        <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Name:</label>
+            <div class="col-sm-10">
+                <input type="text" ngModel required class="form-control form-control-sm" id="colFormLabelSm"
+                  minlength="1" pattern="[a-zA-Z0-9 ]+"  formControlName="name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Description:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control form-control-sm" id="colFormLabelSm" formControlName="description"
+                 minlength="1" pattern="[a-zA-Z0-9 ]+" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Count:</label>
+            <div class="col-sm-10">
+                <input type="number" min="0" class="form-control form-control-sm" id="colFormLabelSm"
+                    formControlName="count" required>
+            </div>
+        </div>
+        <button type="submit" (onClick)="visableTable=true" class="btn btn-primary">update</button>
+    </form>

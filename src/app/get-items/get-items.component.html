@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">description</th>
+            <th scope="col">count</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let items of collection">
+            <th scope="row">*</th>
+            <td>{{items.id}}</td>
+            <td>{{items.name}}</td>
+            <td>{{items.description}}</td>
+            <td>{{items.count}}</td>
+        </tr>
+    </tbody>
+</table>
